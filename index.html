@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080008">
+<title>İlknur ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;background:
+ radial-gradient(ellipse at 50% 45%,#4b0634 0%,#160514 40%,#030205 80%);
+ color:white;font-family:Arial,sans-serif;text-align:center;
+ display:flex;justify-content:center;align-items:center;
+ overflow-x:hidden;padding:22px 14px;
+}
+#stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;color:#ff4da6;animation:twinkle 2s infinite alternate}
+.card{position:relative;z-index:1;width:100%;max-width:470px;padding:24px 16px}
+.name{font-size:clamp(48px,13vw,75px);font-weight:900;font-style:italic;
+ color:#ff4ca5;text-shadow:0 0 10px #ff168a,0 0 35px #ff168a;
+ margin:12px 0}
+.crown{font-size:27px;color:#ff8ac9}
+.small{color:#ffd1e8;font-size:14px;letter-spacing:1px}
+.heart{font-size:85px;margin:15px 0;
+ filter:drop-shadow(0 0 20px #ff168a);animation:beat 1.2s infinite}
+h1{font-size:clamp(30px,8vw,43px);line-height:1.18;margin:20px 0}
+.pink{color:#ff5aab;text-shadow:0 0 18px #ff168a66}
+.hint{color:#f5c7e1;font-size:14px;margin:20px 0}
+.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+button{min-width:135px;padding:15px 22px;border-radius:40px;
+ font-size:17px;font-weight:bold;cursor:pointer;transition:.2s}
+button:active{transform:scale(.95)}
+#yes{background:linear-gradient(110deg,#ff198a,#ff64ba);
+ color:white;border:1px solid white;box-shadow:0 0 25px #ff168a77}
+#no{background:#120710;color:#ffc1df;border:1px solid #ff62b5}
+#result{display:none;border:1px solid #ff59ae;border-radius:18px;
+ padding:20px;margin-top:24px;background:#ff168a12;animation:show .5s}
+#result h2{color:#ff78bc}
+a{color:#ff9bcc;text-decoration:none}
+.insta{display:inline-block;margin-top:35px;font-size:14px}
+footer{font-size:11px;color:#b89aaf;margin-top:20px}
+@keyframes beat{50%{transform:scale(1.12)}}
+@keyframes twinkle{to{opacity:.25;transform:scale(.7)}}
+@keyframes show{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+
+<main class="card">
+ <div class="small">✦ SADECE SANA ÖZEL ✦</div>
+ <div class="crown">♛</div>
+ <div class="name">İlknur ♡</div>
+
+ <p>Küçük bir sürpriz hazırladım... 😉</p>
+ <p class="small">Ekrana iyi bak 💗</p>
+
+ <div class="heart">♡</div>
+
+ <h1>Benimle<br><span class="pink">sevgili olur musun?</span></h1>
+ <p class="hint">Cevabını merak ediyorum... ♡</p>
+
+ <div class="buttons">
+  <button id="yes" onclick="answer(true)">♡ Evet</button>
+  <button id="no" onclick="answer(false)">✕ Hayır</button>
+ </div>
+
+ <div id="result"></div>
+
+ <div class="insta">
+  📸 <a href="https://www.instagram.com/yusufefeyldz_06/"
+  target="_blank" rel="noopener noreferrer">@yusufefeyldz_06</a>
+  <div style="margin-top:8px;color:#bda2b5;font-size:12px">
+   Takip edersen sevinirim ♡
+  </div>
+ </div>
+ <footer>MADE WITH ♡ BY YUSUF</footer>
+</main>
+
+<script>
+const stars=document.getElementById("stars");
+for(let i=0;i<45;i++){
+ const s=document.createElement("span");
+ s.className="star";
+ s.textContent=Math.random()>.5?"✦":"·";
+ s.style.left=Math.random()*100+"%";
+ s.style.top=Math.random()*100+"%";
+ s.style.fontSize=(10+Math.random()*15)+"px";
+ s.style.animationDelay=Math.random()*2+"s";
+ stars.appendChild(s);
+}
+
+function answer(yes){
+ const r=document.getElementById("result");
+ r.style.display="block";
+ document.getElementById("yes").style.display="none";
+ document.getElementById("no").style.display="none";
+
+ if(yes){
+  r.innerHTML="<div style='font-size:45px'>🥳💗</div>"+
+  "<h2>YUHUUU! ❤️😂</h2>"+
+  "<p>Gerçekten evet mi?! Çok mutlu oldum! 💕</p>";
+  for(let i=0;i<35;i++){
+   setTimeout(()=>{
+    const h=document.createElement("span");
+    h.textContent=["💗","💕","✨","❤️"][Math.floor(Math.random()*4)];
+    h.style.cssText="position:fixed;left:"+Math.random()*100+
+    +"vw;bottom:-30px;font-size:25px;pointer-events:none;z-index:9";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animation="float 3s linear forwards";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),3000);
+   },i*80);
+  }
+ }else{
+  r.innerHTML="<div style='font-size:40px'>💗</div>"+
+  "<h2>Canın sağ olsun 😊</h2>"+
+  "<p>Dürüst olduğun için teşekkür ederim. "+
+  "Kararına saygı duyuyorum. 🌸</p>";
+ }
+}
+</script>
+</body>
+</html>
+
